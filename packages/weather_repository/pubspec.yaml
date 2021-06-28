@@ -9,8 +9,8 @@ environment:
 dependencies:
   equatable: ^2.0.0
   json_annotation: ^4.0.0
-  # meta_weather_api:
-  #   path: ../meta_weather_api
+  meta_weather_api:
+    path: ../meta_weather_api
 
 dev_dependencies:
   coverage: ^1.0.3

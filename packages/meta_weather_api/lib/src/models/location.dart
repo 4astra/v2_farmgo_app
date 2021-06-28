@@ -31,7 +31,6 @@ class Location {
 
   final String title;
   final LocationType locationType;
-
   @JsonKey(name: 'latt_long')
   @LatLngConverter()
   final LatLng latLng;
@@ -49,17 +48,17 @@ class LatLngConverter implements JsonConverter<LatLng, String> {
   const LatLngConverter();
 
   @override
-  String toJson(LatLng object) {
-    // TODO: implement toJson
-    return '${object.latitude},${object.longitude}';
+  String toJson(LatLng latLng) {
+    return '${latLng.latitude},${latLng.longitude}';
   }
 
   @override
-  LatLng fromJson(String json) {
-    // TODO: implement fromJson
-    final parts = json.split(',');
+  LatLng fromJson(String jsonString) {
+    final parts = jsonString.split(',');
+    print('\n\n\n location parts:$parts');
     return LatLng(
-        latitude: double.tryParse(parts[0]) ?? 0,
-        longitude: double.tryParse(parts[1]) ?? 0);
+      latitude: double.tryParse(parts[0]) ?? 0,
+      longitude: double.tryParse(parts[1]) ?? 0,
+    );
   }
 }
