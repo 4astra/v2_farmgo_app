@@ -33,12 +33,12 @@ class WeatherAppView extends StatelessWidget {
         return MaterialApp(
           theme: ThemeData(
             primaryColor: color,
-            // textTheme: GoogleFonts.rajdhaniTextTheme(),
-            // appBarTheme: AppBarTheme(
-            //   textTheme: GoogleFonts.rajdhaniTextTheme(textTheme).apply(
-            //     bodyColor: Colors.white,
-            //   ),
-            // ),
+            textTheme: GoogleFonts.rajdhaniTextTheme(),
+            appBarTheme: AppBarTheme(
+              textTheme: GoogleFonts.rajdhaniTextTheme(textTheme).apply(
+                bodyColor: Colors.white,
+              ),
+            ),
           ),
           home: WeatherPage(),
         );
