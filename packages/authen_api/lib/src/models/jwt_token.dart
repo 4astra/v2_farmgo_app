@@ -8,6 +8,8 @@ class JWTToken {
   factory JWTToken.fromJson(Map<String, dynamic> json) =>
       _$JWTTokenFromJson(json);
 
+  Map<String, dynamic> toJson() => _$JWTTokenToJson(this);    
+
   static final empty = JWTToken(
     token: '',
   );
