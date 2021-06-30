@@ -15,10 +15,10 @@ class LoginDTO {
   Map<String, dynamic> toJson() => _$LoginDTOToJson(this);
 
   static final empty = LoginDTO(
-    email: null,
-    phoneNumber: null,
-    password: null,
-    loginType: null,
+    email: '',
+    phoneNumber: '',
+    password: '',
+    loginType: '',
   );
 
   @JsonKey(name: "email")

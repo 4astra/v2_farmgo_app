@@ -9,7 +9,7 @@ class JWTToken {
       _$JWTTokenFromJson(json);
 
   static final empty = JWTToken(
-    token: null,
+    token: '',
   );
 
   @JsonKey(name: "result")
