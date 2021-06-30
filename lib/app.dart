@@ -4,23 +4,39 @@ import 'package:farm_go/theme/theme.dart';
 import 'package:farm_go/weather/weather.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:weather_repository/weather_repository.dart';
+import 'package:authen_repository/authen_repository.dart';
 
 class WeatherApp extends StatelessWidget {
-  const WeatherApp({Key? key, required WeatherRepository weatherRepository})
+  const WeatherApp(
+      {Key? key,
+      required WeatherRepository weatherRepository,
+      required AuthenRepository authenRepository})
       : _weatherRepository = weatherRepository,
+        _authenRepository = authenRepository,
         super(key: key);
 
   final WeatherRepository _weatherRepository;
+  final AuthenRepository _authenRepository;
 
   @override
   Widget build(BuildContext context) {
-    return RepositoryProvider.value(
-      value: _weatherRepository,
+    return MultiRepositoryProvider(
+      providers: [
+        RepositoryProvider.value(value: _authenRepository),
+        RepositoryProvider.value(value: _weatherRepository),
+      ],
       child: BlocProvider(
         create: (_) => ThemeCubit(),
         child: WeatherAppView(),
       ),
     );
+    // return RepositoryProvider.value(
+    //   value: _weatherRepository,
+    // child: BlocProvider(
+    //   create: (_) => ThemeCubit(),
+    //   child: WeatherAppView(),
+    // ),
+    // );
   }
 }
 

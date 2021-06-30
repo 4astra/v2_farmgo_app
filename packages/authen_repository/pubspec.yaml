@@ -1,0 +1,20 @@
+name: authen_repository
+description: A new flutter plugin project.
+version: 0.0.1
+homepage:
+
+publish_to: none
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  equatable: ^2.0.0
+  json_annotation: ^4.0.0
+  authen_api:
+    path: ../authen_api
+
+dev_dependencies:
+  coverage: ^1.0.3
+  build_runner: ^2.0.5
+  json_serializable: ^4.1.3

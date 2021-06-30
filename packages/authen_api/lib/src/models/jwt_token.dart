@@ -8,6 +8,10 @@ class JWTToken {
   factory JWTToken.fromJson(Map<String, dynamic> json) =>
       _$JWTTokenFromJson(json);
 
+  static final empty = JWTToken(
+    token: null,
+  );
+
   @JsonKey(name: "result")
-  final String token;
+  final String? token;
 }

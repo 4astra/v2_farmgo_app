@@ -32,6 +32,8 @@ dependencies:
   pedantic: ^1.9.0
   weather_repository:
     path: packages/weather_repository
+  authen_repository:
+    path: packages/authen_repository
 
 
   # The following adds the Cupertino Icons font to your application.

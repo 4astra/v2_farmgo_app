@@ -4,9 +4,6 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:weather_repository/weather_repository.dart'
     show WeatherRepository;
-
-import 'dart:developer' as developer;
-import 'dart:convert';
 part 'weather_cubit.g.dart';
 part 'weather_state.dart';
 
