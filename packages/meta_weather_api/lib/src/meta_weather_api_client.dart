@@ -34,7 +34,7 @@ class MetaWeatherApiClient {
       '/api/location/search',
       <String, String>{'query': query},
     );
-    print("\n\n\n locationResponse:$locationRequest");
+    print('\n\n\n locationResponse:$locationRequest');
     final locationResponse = await _httpClient.get(locationRequest);
 
     if (locationResponse.statusCode != 200) {
@@ -49,7 +49,7 @@ class MetaWeatherApiClient {
       throw LocationNotFoundFailure();
     }
     final jsonString = locationJson.first as Map<String, dynamic>;
-    print("\n\n\n locationJson:$jsonString");
+    print('\n\n\n locationJson:$jsonString');
     return Location.fromJson(jsonString);
   }
 

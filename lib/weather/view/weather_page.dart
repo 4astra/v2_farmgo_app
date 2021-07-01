@@ -26,6 +26,20 @@ class WeatherPage extends StatelessWidget {
       ),
     ], child: WeatherView());
   }
+
+  static Route route() {
+    return MaterialPageRoute<void>(
+      fullscreenDialog: true,
+      builder: (_) => MultiBlocProvider(providers: [
+        BlocProvider(
+          create: (context) => WeatherCubit(context.read<WeatherRepository>()),
+        ),
+        BlocProvider(
+          create: (context) => LoginCubit(context.read<AuthenRepository>()),
+        ),
+      ], child: WeatherView()),
+    );
+  }
 }
 
 class WeatherView extends StatelessWidget {
@@ -35,22 +49,18 @@ class WeatherView extends StatelessWidget {
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(Icons.login),
-          // onPressed: () {
-          //   Navigator.of(context).push<void>(LoginPage.route(
-          //     context.read<LoginCubit>(),
-          //   ));
-          // },
           onPressed: () async {
-            // final city = await Navigator.of(context).push(LoginPage.route());
-            // print('City: $city');
-            // unawaited(context.read<WeatherCubit>().fetchWeather(city));
+            // 1. Navigator pop and keep context
+            // Navigator.of(context).push<void>(LoginPage.route(
+            //   context.read<LoginCubit>(),
+            // ));
 
-            Navigator.of(context).push<void>(LoginPage.route(
-              context.read<LoginCubit>(),
-            ));
+            // 2. Navigator push new context
+            Navigator.pushReplacement(
+                context, LoginPage.route(context.read<LoginCubit>()));
           },
         ),
-        title: const Text('Flutter Weather'),
+        title: const Text('Farm Go'),
         actions: [
           IconButton(
             icon: const Icon(Icons.settings),

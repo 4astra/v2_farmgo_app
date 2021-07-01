@@ -15,13 +15,13 @@ class WeatherCubit extends HydratedCubit<WeatherState> {
 
   Future<void> fetchWeather(String? city) async {
     if (city == null || city.isEmpty) return;
-    print("\n\n\n fetchWeather:$city");
+    print('\n\n\n fetchWeather:$city');
 
     emit(state.copyWith(status: WeatherStatus.loading));
 
     try {
       final xx = await _weatherRepository.getWeather(city);
-      print("\n\n\n fetchWeather _weatherRepository:$xx");
+      print('\n\n\n fetchWeather _weatherRepository:$xx');
       final weather = Weather.fromRepository(
         xx,
       );

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:farm_go/authen/authen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:farm_go/weather/weather.dart';
 
 class LoginPage extends StatelessWidget {
   static Route route(LoginCubit weatherCubit) {
     return MaterialPageRoute<void>(
+      fullscreenDialog: true,
       builder: (_) => BlocProvider.value(
         value: weatherCubit,
         child: LoginPage(),
@@ -15,28 +17,39 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Login')),
-      body: ListView(
-        children: <Widget>[
-          BlocBuilder<LoginCubit, LoginState>(
-            buildWhen: (previous, current) => previous.status != current.status,
-            builder: (context, state) {
-              return Align(
-                alignment: const Alignment(0, 100),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    _UsernameInput(),
-                    const Padding(padding: EdgeInsets.all(12)),
-                    _PasswordInput(),
-                    const Padding(padding: EdgeInsets.all(12)),
-                    _LoginButton(),
-                  ],
-                ),
-              );
-            },
-          ),
-        ],
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: const Text('Login'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            BlocBuilder<LoginCubit, LoginState>(
+              buildWhen: (previous, current) =>
+                  previous.status != current.status,
+              builder: (context, state) {
+                return Align(
+                  // alignment: const Alignment(0, 100),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Padding(
+                          padding: EdgeInsets.all(16.0),
+                          child: _UsernameInput()),
+                      const Padding(padding: EdgeInsets.all(12)),
+                      Padding(
+                          padding: EdgeInsets.all(16), child: _PasswordInput()),
+                      const Padding(padding: EdgeInsets.all(12)),
+                      _LoginButton(),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -53,7 +66,8 @@ class _UsernameInput extends StatelessWidget {
           onChanged: (username) => {print('object: $username')},
           // context.read<LoginCubit>().add(LoginUsernameChanged(username)),
           decoration: InputDecoration(
-            labelText: 'username',
+            // contentPadding: EdgeInsets.all(8),
+            labelText: 'User name',
             errorText: state.loginDTO.email == null ? 'invalid email' : null,
           ),
         );
@@ -74,9 +88,12 @@ class _PasswordInput extends StatelessWidget {
           // context.read<LoginBloc>().add(LoginPasswordChanged(password)),
           obscureText: true,
           decoration: InputDecoration(
-            labelText: 'password',
+            // contentPadding: EdgeInsets.all(8),
+            labelText: 'Password',
             errorText:
                 state.loginDTO.password == null ? 'invalid password' : null,
+            // enabledBorder: UnderlineInputBorder(
+            //     borderSide: BorderSide(style: BorderStyle.none)),
           ),
         );
       },
@@ -91,9 +108,20 @@ class _LoginButton extends StatelessWidget {
       buildWhen: (previous, current) => previous.status != current.status,
       builder: (context, state) {
         return ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            minimumSize: Size(120, 35),
+          ),
           key: const Key('loginForm_continue_raisedButton'),
-          child: const Text('Login'),
-          onPressed: () => {},
+          child: const Text(
+            'Login',
+          ),
+          onPressed: () => {
+            // 1. Navigator pop and keep context
+            // Navigator.of(context).popUntil((route) => route.isFirst)
+
+            // 2. Navigator push new context
+            Navigator.pushReplacement(context, WeatherPage.route())
+          },
         );
         // return state.status.isSubmissionInProgress
         //     ? const CircularProgressIndicator()
