@@ -1,16 +1,28 @@
 # farm_go
 
-A new Flutter project.
+a project is experimente using flutter 
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+To install dependencies, type `flutter pub get`
 
-A few resources to get you started if this is your first Flutter project:
+## Create new plugin or module repository
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+- To customize new repository, you should be at **packages** 's folder and use command to generate plugin `flutter create -t plugin hello_my_lib`
+- If some **class_a.dart** need be encoded as json by **@JsonSerializable**, for example, will be generated like **class_a.g.dart** .Should follow steps:
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1) Terminal app use `cd to_root_parent_folder` 
+2) Import library module `git submodule add https://github.com/google/inject.dart`
+3) Use command to generate `flutter pub run build_runner build` or `flutter packages pub run build_runner build`
+
+Note: 
+- If just want to generate json for specify folder of reposity and run `flutter pub run build_runner build` 
+- Should delete previous generated **`*.g.dart`** file before run command above.
+
+## Run on iOS/Android
+- For example, open iOS Simulator runs first
+- then run `fultter run`
+
+## Run on web
+- Kill all simulator/ emulator
+- then run `fultter run`
