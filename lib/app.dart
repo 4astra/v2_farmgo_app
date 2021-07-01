@@ -6,8 +6,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:weather_repository/weather_repository.dart';
 import 'package:authen_repository/authen_repository.dart';
 
-class WeatherApp extends StatelessWidget {
-  const WeatherApp(
+class FarmGoApp extends StatelessWidget {
+  const FarmGoApp(
       {Key? key,
       required WeatherRepository weatherRepository,
       required AuthenRepository authenRepository})
@@ -27,20 +27,13 @@ class WeatherApp extends StatelessWidget {
       ],
       child: BlocProvider(
         create: (_) => ThemeCubit(),
-        child: WeatherAppView(),
+        child: FarmGoAppView(),
       ),
     );
-    // return RepositoryProvider.value(
-    //   value: _weatherRepository,
-    // child: BlocProvider(
-    //   create: (_) => ThemeCubit(),
-    //   child: WeatherAppView(),
-    // ),
-    // );
   }
 }
 
-class WeatherAppView extends StatelessWidget {
+class FarmGoAppView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
