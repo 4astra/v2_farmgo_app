@@ -26,3 +26,7 @@ Note:
 ## Run on web
 - Kill all simulator/ emulator ran before
 - then run `fultter run`
+
+## Structure
+
+[![Structure](https://github.com/brianha289/v2_farmgo_app/blob/main/public/Screen%20Shot%202021-07-01%20at%206.21.18%20PM.png)](https://github.com/brianha289/v2_farmgo_app/blob/main/public/Screen%20Shot%202021-07-01%20at%206.21.18%20PM.png)
