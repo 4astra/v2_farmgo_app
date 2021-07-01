@@ -1,6 +1,6 @@
 # farm_go
 
-a project is experimente using flutter 
+a project is experimente uses flutter and is buit Bloc fluter and Dart programing language
 
 ## Getting Started
 
@@ -16,7 +16,7 @@ To install dependencies, type `flutter pub get`
 3) Use command to generate `flutter pub run build_runner build` or `flutter packages pub run build_runner build`
 
 Note: 
-- If just want to generate json for specify folder of reposity, you should move to there & run `flutter pub run build_runner build` 
+- If you want to generate json for specify folder of reposity, you should move to there & run `flutter pub run build_runner build` 
 - Should delete previous generated **`*.g.dart`** file before run command above.
 
 ## Run on iOS/Android
@@ -24,5 +24,5 @@ Note:
 - then run `fultter run`
 
 ## Run on web
-- Kill all simulator/ emulator
+- Kill all simulator/ emulator ran before
 - then run `fultter run`
