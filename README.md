@@ -1,6 +1,6 @@
 # farm_go
 
-a project is experimente uses flutter and is buit Bloc fluter and Dart programing language
+farm go app is experiment project uses Bloc Flutter and Dart programing language
 
 ## Getting Started
 
